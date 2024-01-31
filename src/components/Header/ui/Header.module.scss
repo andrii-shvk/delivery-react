@@ -20,8 +20,10 @@
     align-items: center;
     gap: 10px;
 
-    svg {
-        color: var(--icon-color);
+    p {
+        color: var(--primary-color);
+        font: var(--font-m);
+        font-weight: 700;
     }
 }
 .button {
