@@ -19,8 +19,6 @@ const Header = () => {
         toggleTheme();
     }
 
-    console.log('theme', theme);
-
     return (
         <header className={cls.header}>
             <div className={cls.container}>
