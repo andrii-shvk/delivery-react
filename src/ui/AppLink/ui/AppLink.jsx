@@ -7,10 +7,11 @@ const AppLink = (props) => {
     return (
         <NavLink 
             className={({isActive}) => {
-            return classNames(className, {
-                [activeClassName]: isActive,
-            })} } 
-            to={to}>
+                return classNames(className, {
+                    [activeClassName]: isActive,
+                })} } 
+            to={to}
+        >
                 {children}
             </NavLink>
     );
