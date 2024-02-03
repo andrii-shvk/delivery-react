@@ -1,4 +1,4 @@
-import ReactDOM from 'react-dom/client'
+import ReactDOM from 'react-dom/client';
 import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 import { MainLayout } from './layouts/MainLayout';
 import './assets/styles/index.scss';
