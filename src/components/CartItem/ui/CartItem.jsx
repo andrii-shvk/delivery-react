@@ -9,12 +9,13 @@ const CartItem = (props) => {
         title = '', 
         product = '', 
         ingredients = [], 
-        description = ''
+        description = '',
+        price = 0
     } = props;
 
     const ingredientsText = ingredients.join(", ");
 
-    return ( 
+    return (
         <article className={cls.card}>
             <img className={cls.img} src={img} />
 
@@ -29,7 +30,7 @@ const CartItem = (props) => {
                     <Button border className={cls.button}>
                         Выбрать
                     </Button>
-                    <span>От 0 $</span>
+                    {product === productsName.OTHERS ? <span>{price} $</span> : <span>От {price} $</span>}
                 </div>
             </div>
         </article>
