@@ -29,7 +29,6 @@ const ProductTape = (props) => {
                 )
             case productsName.ROLLS:
                 const  prices = el.pieces.map(el => el.price);
-                console.log('prices', prices);
                 const minPriceRolls = Math.min(...prices)
 
                 return (
