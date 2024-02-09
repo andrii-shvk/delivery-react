@@ -5,6 +5,7 @@ import { useInView } from "react-intersection-observer";
 import { useDispatch, useSelector } from "react-redux";
 import { getRolls, getRollsError, getRollsLoading } from "@/redux/rolls/selectors/rollsSelector";
 import { fetchNextRollsPage } from "@/redux/rolls/services/fetchNextRollsPage";
+import { ProductLayoutSkeleton } from "@/layouts/ProductLayout/ui/ProductLayout";
 
 const RollsPage = () => {
     const rolls = useSelector(getRolls);
@@ -45,6 +46,7 @@ const RollsPage = () => {
     return (
         <>
             <ProductLayout header={'Роллы'} item={item} />
+            {loading && <ProductLayoutSkeleton />}
             {!loading && <div ref={ref} />}
         </>
     )

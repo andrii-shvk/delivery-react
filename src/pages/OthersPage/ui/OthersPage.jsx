@@ -5,6 +5,7 @@ import { useInView } from "react-intersection-observer";
 import { useDispatch, useSelector } from "react-redux";
 import { getOthers, getOthersError, getOthersLoading } from "@/redux/others/selectors/othersSelector";
 import { fetchNextOthersPage } from "@/redux/others/services/fetchNextOthersPage";
+import { ProductLayoutSkeleton } from "@/layouts/ProductLayout/ui/ProductLayout";
 
 const OthersPage = () => {
     const others = useSelector(getOthers);
@@ -35,14 +36,15 @@ const OthersPage = () => {
                 product={el.product} 
                 img={el.photo} 
                 title={el.name} 
-                ingredients={el.ingredients}
+                description={el.description}
                 price={el.price}
             />
     })
 
     return (
         <>
-            <ProductLayout header={'Роллы'} item={item} />
+            <ProductLayout header={'Прочее'} item={item} />
+            {loading && <ProductLayoutSkeleton />}
             {!loading && <div ref={ref} />}
         </>
     )

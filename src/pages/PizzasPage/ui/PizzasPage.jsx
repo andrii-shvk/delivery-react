@@ -1,5 +1,6 @@
 import { CartItem } from "@/components/CartItem";
 import { ProductLayout } from "@/layouts/ProductLayout";
+import { ProductLayoutSkeleton } from "@/layouts/ProductLayout/ui/ProductLayout";
 import { getPizzas, getPizzasError, getPizzasLoading } from "@/redux/pizzas/selectors/pizzasSelector";
 import { fetchNextPizzasPage } from "@/redux/pizzas/services/fetchNextPizzasPage";
 import { calcMinPricePizzas } from "@/utils/calcMinPrice";
@@ -12,9 +13,9 @@ const PizzasPage = () => {
     const error = useSelector(getPizzasError);
     const loading = useSelector(getPizzasLoading);
 
-    const { ref, inView, entry } = useInView({
+    const { ref, inView } = useInView({
         threshold: 1,
-      });
+    });
 
     const dispatch = useDispatch();
 
@@ -45,6 +46,7 @@ const PizzasPage = () => {
     return (
         <>
             <ProductLayout header={'Пиццы'} item={item} />
+            {loading && <ProductLayoutSkeleton />}
             {!loading && <div ref={ref} />}
         </>
     )
