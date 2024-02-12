@@ -25,7 +25,7 @@ const OthersPage = () => {
     }, [dispatch, inView]);
 
     if(error) {
-        return <div>{error}</div>
+        return <div className="error">{error}</div>
     }
 
     const item = others.map(el => {
