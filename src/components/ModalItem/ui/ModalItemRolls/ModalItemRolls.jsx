@@ -6,9 +6,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { Button } from "@/ui/Button";
 import cls from "./../ModalItem/ModalItem.module.scss";
 import { getProductItemRollQuantity } from "@/redux/productItem/selectors/productItemSelectors";
+import { useModalItemsParams } from "../../helper/useModalItemParams";
 
 const ModalItemRolls = (props) => {
     const {isOpen, product, price} = props;
+
+    const newParams = useModalItemsParams();
     
     const dispatch = useDispatch();
 
@@ -58,16 +61,8 @@ const ModalItemRolls = (props) => {
         </div>
     )
 
-    const newParams = {
-        id: product.id,
-        product: product.product,
-        img: product.photo,
-        title: product.name,
-        price: price
-    }
-
     return (
-        <ModalItemLayout params={newParams} options={options} />
+        <ModalItemLayout price={price} params={newParams} options={options} />
     );
 }
  

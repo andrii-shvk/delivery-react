@@ -5,6 +5,7 @@ import { ModalItemPizza } from "../ModalItemPizza/ModalItemPizza";
 import { ModalItemRolls } from "../ModalItemRolls/ModalItemRolls";
 import { ModalItemOthers } from "../ModalItemOthers/ModalItemOthers";
 import { Modal } from "@/ui/Modal";
+import { ModalItemSkeleton } from "../ModalItemSkeleton/ModalItemSkeleton";
 
 const ModalItem = (props) => {
     const {isOpen, setIsOpen} = props;
@@ -31,6 +32,20 @@ const ModalItem = (props) => {
             default: 
                 return null
         }
+    }
+
+    if (loading) {
+        return (
+            <Modal
+            setIsOpen={setIsOpen} 
+            isOpen={isOpen} 
+            width={1070} 
+            height={680} 
+            border={25}
+        >
+            <ModalItemSkeleton />
+        </Modal>
+        )
     }
 
     return (

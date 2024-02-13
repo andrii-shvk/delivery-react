@@ -3,9 +3,12 @@ import { ModalItemLayout } from "@/layouts/ModalItemLayout";
 import { productActions } from "@/redux/productItem/slice/productItemSlice";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { useModalItemsParams } from "../../helper/useModalItemParams";
 
 const ModalItemOthers = (props) => {
     const {isOpen, product, price} = props;
+
+    const newParams = useModalItemsParams();
     
     const dispatch = useDispatch();
 
@@ -21,16 +24,8 @@ const ModalItemOthers = (props) => {
         }
     }, [dispatch, isOpen, product]);
 
-    const newParams = {
-        id: product.id,
-        product: product.product,
-        img: product.photo,
-        title: product.name,
-        price: price
-    }
-
     return (
-        <ModalItemLayout params={newParams} />
+        <ModalItemLayout price={price} params={newParams} />
     );
 }
  

@@ -10,7 +10,6 @@ import { LayoutContext } from '@/providers/LayoutContextProvider';
 
 const MainLayout = () => {
     const {theme} = useTheme();
-
     const {isOpen, setIsOpen} = useContext(LayoutContext);
 
     return (
