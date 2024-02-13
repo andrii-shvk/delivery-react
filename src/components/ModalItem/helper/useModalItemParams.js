@@ -7,6 +7,6 @@ export const useModalItemsParams = () => {
   return {
     id: product.id,
     product: product.product,
-    img: product.photo
+    img: product.photo,
   };
 };

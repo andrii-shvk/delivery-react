@@ -1,10 +1,11 @@
 import { CartItem } from "@/components/CartItem";
 import { ProductLayout } from "@/layouts/ProductLayout";
 import { ProductLayoutSkeleton } from "@/layouts/ProductLayout/ui/ProductLayout";
+import { LayoutContext } from "@/providers/LayoutContextProvider";
 import { getPizzas, getPizzasError, getPizzasLoading } from "@/redux/pizzas/selectors/pizzasSelector";
 import { fetchNextPizzasPage } from "@/redux/pizzas/services/fetchNextPizzasPage";
 import { calcMinPricePizzas } from "@/utils/calcMinPrice";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -12,6 +13,8 @@ const PizzasPage = () => {
     const pizzas = useSelector(getPizzas);
     const error = useSelector(getPizzasError);
     const loading = useSelector(getPizzasLoading);
+
+    const {handleClick} = useContext(LayoutContext);
 
     const { ref, inView } = useInView({
         threshold: 1,
@@ -40,6 +43,7 @@ const PizzasPage = () => {
                 title={el.name} 
                 ingredients={el.ingredients}
                 price={minPrice} 
+                handleClick={handleClick}
             />
     })
 

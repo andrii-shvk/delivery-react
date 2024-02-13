@@ -1,18 +1,21 @@
 import { CartItem } from "@/components/CartItem";
 import { ProductLayout } from "@/layouts/ProductLayout";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import { useDispatch, useSelector } from "react-redux";
 import { getOthers, getOthersError, getOthersLoading } from "@/redux/others/selectors/othersSelector";
 import { fetchNextOthersPage } from "@/redux/others/services/fetchNextOthersPage";
 import { ProductLayoutSkeleton } from "@/layouts/ProductLayout/ui/ProductLayout";
+import { LayoutContext } from "@/providers/LayoutContextProvider";
 
 const OthersPage = () => {
     const others = useSelector(getOthers);
     const error = useSelector(getOthersError);
     const loading = useSelector(getOthersLoading);
 
-    const { ref, inView, entry } = useInView({
+    const {handleClick} = useContext(LayoutContext);
+
+    const { ref, inView } = useInView({
         threshold: 1,
       });
 
@@ -38,6 +41,7 @@ const OthersPage = () => {
                 title={el.name} 
                 description={el.description}
                 price={el.price}
+                handleClick={handleClick}
             />
     })
 
