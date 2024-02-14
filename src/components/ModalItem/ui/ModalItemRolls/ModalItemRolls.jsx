@@ -11,7 +11,7 @@ import { useModalItemsParams } from "../../helper/useModalItemParams";
 const ModalItemRolls = (props) => {
     const {isOpen, product, price} = props;
 
-    const newParams = useModalItemsParams();
+    const params = useModalItemsParams();
     
     const dispatch = useDispatch();
 
@@ -60,6 +60,11 @@ const ModalItemRolls = (props) => {
 
         </div>
     )
+
+    const newParams = {
+        ...params,
+        quantity: quantityRolls?.name
+    }
 
     return (
         <ModalItemLayout price={price} params={newParams} options={options} />

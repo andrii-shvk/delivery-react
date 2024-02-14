@@ -8,7 +8,7 @@ import { useModalItemsParams } from "../../helper/useModalItemParams";
 const ModalItemOthers = (props) => {
     const {isOpen, product, price} = props;
 
-    const newParams = useModalItemsParams();
+    const params = useModalItemsParams();
     
     const dispatch = useDispatch();
 
@@ -25,7 +25,7 @@ const ModalItemOthers = (props) => {
     }, [dispatch, isOpen, product]);
 
     return (
-        <ModalItemLayout price={price} params={newParams} />
+        <ModalItemLayout price={price} params={params} />
     );
 }
  
