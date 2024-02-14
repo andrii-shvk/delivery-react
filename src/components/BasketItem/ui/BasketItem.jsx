@@ -82,13 +82,11 @@ const BasketItem = () => {
         <>
             <div className={cls.basketContent}>
                 <h2>Ваш заказ</h2>
-
                 {item}
-
+                
                 {!basket.length && (
                     <div className={cls.empty}>
                         <h3>Ваша корзина пуста... Наполните ее!</h3>
-
                         <img src={basketImg} />
                     </div>
                 )}

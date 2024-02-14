@@ -1,3 +1,4 @@
+import { calcTotalPrice } from "@/utils/calcTotalPrice";
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -21,7 +22,8 @@ export const basketSlice = createSlice({
       } else {
         state.items.push(action.payload);
       }
-      
+
+      state.totalPrice = calcTotalPrice(state.items);
     },
     minusItem(state, action) {
       const item = state.items.find((res) => {
@@ -36,6 +38,7 @@ export const basketSlice = createSlice({
         });
       }
       
+      state.totalPrice = calcTotalPrice(state.items);
     },
   },
 });
