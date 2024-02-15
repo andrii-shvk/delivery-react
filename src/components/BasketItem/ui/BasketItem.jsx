@@ -17,7 +17,7 @@ const BasketItem = () => {
             case productsName.ROLLS:
                 return `${product.product} - ${product.id} - ${product.quantity} - ${product.price}`;
             case productsName.OTHERS: 
-            return `${product.product} - ${product.id} - ${product.price}`;
+                return `${product.product} - ${product.id} - ${product.price}`;
             
             default: 
                 return null

@@ -44,5 +44,4 @@ export const basketSlice = createSlice({
 });
 
 export const { actions: basketActions } = basketSlice;
-
 export const { reducer: basketReducer } = basketSlice;
